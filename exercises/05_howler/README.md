@@ -54,10 +54,8 @@ optional arguments:
                         Output filename (default: )
 ```
 
-Activate the testing environment
-```
-conda activate /groups/bhurwitz/bh_class/be434/be434-conda
-```
+Run `grade.sh` to ensure you pass all the tests:
+This will run make test for you.
 
 Run the test suite to ensure your program is working correctly:
 

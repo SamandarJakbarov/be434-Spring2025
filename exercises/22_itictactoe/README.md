@@ -66,8 +66,5 @@ Player X, what is your move? [q to quit]: 8
 All right, we'll call it a draw.
 ```
 
-Activate the testing environment
-
-```
-conda activate /groups/bhurwitz/bh_class/be434/be434-conda
-```
+Run `grade.sh` to ensure you pass all the tests:
+This will run make test for you.

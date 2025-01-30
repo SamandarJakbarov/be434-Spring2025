@@ -29,12 +29,8 @@ optional arguments:
   -n str, --name str  The name to greet (default: World)
 ```
 
-Activate the testing environment
-```
-conda activate /groups/bhurwitz/bh_class/be434/be434-conda
-```
-
-Run `pytest -xv test.py` (or `make test`) to ensure you pass all the tests:
+Run `grade.sh` to ensure you pass all the tests:
+This will run make test for you.
 
 ```
 $ make test

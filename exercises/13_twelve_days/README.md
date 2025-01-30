@@ -69,13 +69,8 @@ optional arguments:
                         mode='w' encoding='utf-8'>)
 ```
 
-Activate the testing environment
-
-```
-conda activate /groups/bhurwitz/bh_class/be434/be434-conda
-```
-
-Run the test suite
+Run `grade.sh` to ensure you pass all the tests:
+This will run make test for you.
 
 ```
 $ make test

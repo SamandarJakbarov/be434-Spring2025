@@ -110,6 +110,9 @@ $ ./tictactoe.py -b .XX....OO -p X -c 1
 X has won!
 ```
 
+Run `grade.sh` to ensure you pass all the tests:
+This will run make test for you.
+
 The program should pass all tests:
 
 ```

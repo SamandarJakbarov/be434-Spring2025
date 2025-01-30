@@ -85,7 +85,6 @@ T3ATCTACA5CTA3T2CT4CTGA2T3AT2A2TGTCGATA2G2A2TCTACAT2
 A passing test suite looks like this:
 
 ```
-$ conda activate /groups/bhurwitz/bh_class/be434/be434-conda
 $ make test
 pytest -xv --pylint --disable-warnings test.py run.py
 ============================= test session starts ==============================
