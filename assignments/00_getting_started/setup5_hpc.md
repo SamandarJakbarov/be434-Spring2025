@@ -34,9 +34,9 @@ Next, you will need to clone your GitHub repository for the class on the HPC in 
 
 1. In the VSCode app, select Terminal -> new terminal from the top menu bar.
 2. In the terminal window type the following commands:
-Be sure to change the link to your repository
+!!! Be sure to change the link to your repository !!!
 
 cd
-git clone https://github.com/[YOUR GITHUB ID]/be434-Spring2025.git
+git clone git@github.com:[YOUR GITHUB ID]/be434-Spring2025.git
 
 That's it! You should now have a copy of the code on the HPC. Note that the HPC or replit can be your working code repository. They will both write back to your main GitHub code repository when you "commit" and "push" your changes.
