@@ -32,8 +32,15 @@ You can write Python code using the VSCode GUI on the HPC. To access VScode use 
 
 Next, you will need to clone your GitHub repository for the class on the HPC in your home directory. To do this follow these steps:
 
-1. In the VSCode app, select Terminal -> new terminal from the top menu bar.
-2. In the terminal window type the following commands:
+1. First, we need to tell GitHub that the HPC is a trusted source. So, we are going to generate a "key". Go to the HPC web portal, select Clusters -> Shell access from the top menu bar and type the following commands into the shell
+
+cd .ssh
+ssh key-gen (accept all defaults, don't give a password)
+cat id_dsa.pub (copy the entire line from ssh-dss onwards)
+
+2. Follow the steps in this protocol (https://www.protocols.io/view/github-ssh-keys-q26g7do9gwz1/v1) to paste the key into your GitHub settings.
+
+3. In the terminal window (from above) type the following commands:
 !!! Be sure to change the link to your repository !!!
 
 cd
