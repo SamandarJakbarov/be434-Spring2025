@@ -7,6 +7,7 @@ PRG = './howdy.py'
 
 
 # --------------------------------------------------
+    
 def test_exists():
     """ Program exists """
 
@@ -21,6 +22,21 @@ def test_usage():
         rv, out = getstatusoutput(f'{PRG} {flag}')
         assert rv == 0
         assert out.lower().startswith('usage')
+
+#________
+
+def test_flake8():
+    """Run flake8 to check formatting"""
+    rv, out = getstatusoutput('flake8 howdy.py')
+    assert rv == 0
+
+#________
+
+def test_pylint():
+    """Run pylint to check for errors"""
+    rv, out = getstatusoutput('pylint howdy.py')
+    assert rv == 0
+
 
 
 # --------------------------------------------------
