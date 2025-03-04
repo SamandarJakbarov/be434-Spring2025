@@ -1,6 +1,4 @@
 .PHONY: test
 
 test:
-	pytest -xv test.py dna.py
-	flake8 dna.py
-	pylint dna.py
+	python3 -m pytest -xv --flake8 --mypy dna.py tests/dna_test.py
