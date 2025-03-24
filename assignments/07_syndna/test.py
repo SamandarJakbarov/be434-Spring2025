@@ -7,12 +7,16 @@ import re
 import string
 from subprocess import getstatusoutput
 from Bio import SeqIO
-from Bio.SeqUtils import GC
+#from Bio.SeqUtils import GC
+from Bio.SeqUtils import gc_fraction
 from numpy import mean
 from itertools import chain
 
 prg = './syndna.py'
 
+# --------------------------------------------------
+def GC(sequence):
+    return 100 * gc_fraction(sequence, ambiguous="ignore")
 
 # --------------------------------------------------
 def random_string():
