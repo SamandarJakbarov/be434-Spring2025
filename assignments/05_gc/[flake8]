@@ -1,0 +1,2 @@
+max-line-length = 79
+exclude = .git,__pycache__,old,build,dist
