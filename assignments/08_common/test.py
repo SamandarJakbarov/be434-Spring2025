@@ -63,7 +63,7 @@ def test_bad_file1():
     bad = random_filename()
     rv, out = getstatusoutput('{} {} {}'.format(PRG, bad, FOO))
     assert rv > 0
-    assert re.search(f"No such file or directory: '{bad}'", out)
+    assert re.search(f"can't open '{bad}': No such file or directory", out)
 
 
 # --------------------------------------------------
@@ -73,7 +73,8 @@ def test_bad_file2():
     bad = random_filename()
     rv, out = getstatusoutput('{} {} {}'.format(PRG, BAR, bad))
     assert rv > 0
-    assert re.search(f"No such file or directory: '{bad}'", out)
+    assert re.search(f"can't open '{bad}': No such file or directory", out)
+
 
 
 # --------------------------------------------------
