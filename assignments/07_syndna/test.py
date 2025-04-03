@@ -7,7 +7,6 @@ import re
 import string
 from subprocess import getstatusoutput
 from Bio import SeqIO
-#from Bio.SeqUtils import GC
 from Bio.SeqUtils import gc_fraction
 from numpy import mean
 from itertools import chain
@@ -21,31 +20,24 @@ def GC(sequence):
 # --------------------------------------------------
 def random_string():
     """generate a random string"""
-
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=5))
-
 
 # --------------------------------------------------
 def test_exists():
     """usage"""
-
     assert os.path.isfile(prg)
-
 
 # --------------------------------------------------
 def test_usage():
     """usage"""
-
     for flag in ['-h', '--help']:
         rv, out = getstatusoutput('{} {}'.format(prg, flag))
         assert rv == 0
         assert re.match("usage", out, re.IGNORECASE)
 
-
 # --------------------------------------------------
 def test_bad_seqtype():
     """die on bad seqtype"""
-
     bad = random_string()
     rv, out = getstatusoutput(f'{prg} -t {bad}')
     assert rv != 0
@@ -54,18 +46,15 @@ def test_bad_seqtype():
 # --------------------------------------------------
 def test_bad_pctgc():
     """die on bad pctgc"""
-
     bad = random.randint(1, 10)
     rv, out = getstatusoutput(f'{prg} -p {bad}')
     assert rv != 0
     assert re.match('usage:', out, re.I)
     assert re.search(f'--pctgc "{float(bad)}" must be between 0 and 1', out)
 
-
 # --------------------------------------------------
 def test_defaults():
     """runs on good input"""
-
     out_file = 'out.fa'
     try:
         if os.path.isfile(out_file):
@@ -80,19 +69,17 @@ def test_defaults():
         seqs = list(SeqIO.parse(out_file, 'fasta'))
         assert len(seqs) == 10
 
-        # the lengths are in the correct range
+        # lengths
         seq_lens = list(map(lambda seq: len(seq.seq), seqs))
         assert max(seq_lens) <= 75
         assert min(seq_lens) >= 50
 
-        # bases are correct
+        # base check
         bases = ''.join(
-            sorted(
-                set(chain(map(lambda seq: ''.join(sorted(set(seq.seq))),
-                              seqs)))))
+            sorted(set(chain(map(lambda seq: ''.join(sorted(set(seq.seq))), seqs)))))
         assert bases == 'ACGT'
 
-        # the pct GC is about right
+        # GC check
         gc = list(map(lambda seq: GC(seq.seq) / 100, seqs))
         assert .47 <= mean(gc) <= .53
 
@@ -103,7 +90,6 @@ def test_defaults():
 # --------------------------------------------------
 def test_options():
     """runs on good input"""
-
     out_file = random_string() + '.fasta'
     try:
         if os.path.isfile(out_file):
@@ -125,17 +111,17 @@ def test_options():
         seqs = list(SeqIO.parse(out_file, 'fasta'))
         assert len(seqs) == num_seqs
 
-        # the lengths are in the correct range
+        # lengths
         seq_lens = list(map(lambda seq: len(seq.seq), seqs))
         assert max(seq_lens) <= max_len
         assert min(seq_lens) >= min_len
 
-        # bases are correct
+        # base check
         bases = set(''.join(
             map(lambda seq: ''.join(sorted(set(seq.seq))), seqs)))
         assert bases == set('ACGU')
 
-        # the pct GC is about right
+        # GC check
         gc = list(map(lambda seq: GC(seq.seq) / 100, seqs))
         assert pct_gc - .3 <= mean(gc) <= pct_gc + .3
 
