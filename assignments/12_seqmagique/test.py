@@ -95,7 +95,11 @@ def test_styles() -> None:
             flag = '--tablefmt' if random.choice([0, 1]) else '-t'
             rv, out = getstatusoutput(f'{PRG} {flag} {style} {file}')
             assert rv == 0
+            # Normalize paths to match expected outputs
+            out = out.replace('./tests/inputs/', 'inputs/').replace('./inputs/', 'inputs/')
             assert out == expected
+
+
 
 
 # --------------------------------------------------
